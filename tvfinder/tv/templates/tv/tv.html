@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
-    {% if request.path == '/films' %}
+    {% if request.path == '/f' %}
         Peliculas
     {% else %}
         Series
@@ -12,16 +13,18 @@
 {% block content %}
 <br>
 
-<div class="container"></div>
-    <div class="row row-cols-3 row-cols-lg-6 g-2 g-lg-3">
-        {% for tv in all_tv %}
-            <div class="col">
-                <div class="p-2 border bg-light rounded">
-                    <img src={{tv.photo.url}} class="img-thumbnail">
-                    <figcaption class="figure-caption">{{tv.title}} ({{tv.year}})</figcaption>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+<div class="container body-container"></div>
+  <div class="row row-cols-3 row-cols-lg-6 g-2 g-lg-3">
+    {% for tv in all_tv %}
+      <div class="col">
+        <a href="{% url 'filtered_film' tv.tv_type tv.id %}">
+          <div class="p-2 border bg-light rounded">
+            <img src={{tv.photo.url}} class="img-thumbnail">
+            <figcaption class="figure-caption">{{tv.title}} ({{tv.year}})</figcaption>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

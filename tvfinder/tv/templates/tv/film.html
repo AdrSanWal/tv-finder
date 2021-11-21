@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{filtered_film.title}}{% endblock %}
+
+
+{% block content %}
+  <br>
+
+  <div class="container body-container">
+    <div class="row row-cols-2 p-2 border bg-light rounded">
+        
+      <div class="col col-md-auto">
+        <img src={{filtered_film.photo.url}} class="img-thumbnail">
+        <figcaption class="figure-caption">Portada de {{filtered_film.title}}</figcaption>
+      </div>
+      <div class="col p-2 border bg-light rounded">
+        <div class="row row-cols-2">
+          <p class="col col-md-auto">Título:</p>
+          <p class="col">{{filtered_film.title}}</p>
+        </div>
+        <div class="row row-cols-2">
+              <p class="col col-md-auto">Título original:</p>
+              <p class="col">{{filtered_film.original_title}}</p>
+        </div>
+        <div class="row row-cols-2">
+            <p class="col col-md-auto">Año:</p>
+            <p class="col">{{filtered_film.year}}</p>
+        </div>
+        <div class="row row-cols-2">
+            <p class="col col-md-auto">Dirección:</p>
+              <div class="col">
+                {% for director in directors %}
+                    <p class="row">{{director}}</p>
+                {% endfor %}
+          </div>
+        </div>
+        <div class="row row-cols-2">
+            <p class="col col-md-auto">Géneros:</p>
+              <div class="col">
+                {% for gender in genders %}
+                    <p class="row">{{gender}}</p>
+                {% endfor %}
+          </div>
+        </div>
+        <div class="row row-cols-2">
+            <p class="col col-md-auto">Pais:</p>
+            <p class="col">{{filtered_film.country}}</p>
+        </div>
+        <div class="row row-cols-2">
+            <p class="col col-md-auto">Puntuación:</p>
+            <p class="col">{{filtered_film.rating}}</p>
+        </div>
+        <div class="row row-cols-2">
+            <p class="col col-md-auto">Sinopsis:</p>
+            <p class="col">{{filtered_film.summary}}</p>
+          </div>
+      </div> 
+  </div>
+{% endblock %}
