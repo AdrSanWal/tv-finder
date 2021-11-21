@@ -67,7 +67,7 @@ TEMPLATES = [
         },
     },
 ]
-print(BASE_DIR)
+
 WSGI_APPLICATION = 'tvfinder.wsgi.application'
 
 
