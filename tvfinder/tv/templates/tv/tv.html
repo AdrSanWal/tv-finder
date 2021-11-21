@@ -1,7 +1,27 @@
 {% extends 'base.html' %}
 
-{% block title %}{{text}}{% endblock %}
+{% block title %}
+    {% if request.path == '/films' %}
+        Peliculas
+    {% else %}
+        Series
+    {% endif %}
+{% endblock %}
+
 
 {% block content %}
-    <p>Pagina ok</p>
+<br>
+
+<div class="container"></div>
+    <div class="row row-cols-3 row-cols-lg-6 g-2 g-lg-3">
+        {% for tv in all_tv %}
+            <div class="col">
+                <div class="p-2 border bg-light rounded">
+                    <img src={{tv.photo.url}} class="img-thumbnail">
+                    <figcaption class="figure-caption">{{tv.title}} ({{tv.year}})</figcaption>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
