@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    {% if request.path == '/f' %}
+    {% if request.path == '/f/' %}
         Peliculas
     {% else %}
         Series
@@ -12,6 +12,9 @@
 
 {% block content %}
 <br>
+
+<br>
+<h1>{{filter_input}}</h1>
 
 <div class="container body-container"></div>
   <div class="row row-cols-3 row-cols-lg-6 g-2 g-lg-3">
