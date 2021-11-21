@@ -13,13 +13,12 @@ import sqlite3
 file_folder = dirname(realpath(__file__))
 
 # Local
-
 where = 'local'
 urls = ['film.html']
 media_folder = join(file_folder, 'destination_media')
 
-# Activate when web part works
 
+# Activate when web part works
 # where = 'web'
 # url_base = 'https://www.filmaffinity.com'
 # # urls = [f'{url_base}/es/tour.php?idtour={_}' for _ in range(6, 23)] #  all
