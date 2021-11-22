@@ -2,12 +2,12 @@ from os.path import dirname, realpath, join
 from pathlib import Path
 from re import sub
 from shutil import copyfile
+import sqlite3
 from unicodedata import normalize
 from urllib.request import urlretrieve
 
 from bs4 import BeautifulSoup
 from requests import get as rget
-import sqlite3
 
 
 file_folder = dirname(realpath(__file__))
