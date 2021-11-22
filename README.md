@@ -17,22 +17,27 @@ Run project
 2. Install requirements
 
       go to folder/tv-finder and run:
+      
       pip3 install -r requirements.txt
 
 3. Migrate tables
 
       go to folder/tv-finder/tvfinder and run:
+      
       python3 manage.py migrate
   
 4. Create superuser
 
       In the same folder run:
+      
       python3 manage.py createsuperuser
+      
       you will need name, mail and password
   
 5. Launch server
 
       In the same folder run:
+      
       python3 manage.py runserver
   
 While fill_db is not working (it is in process),
