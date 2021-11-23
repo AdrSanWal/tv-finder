@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
             name='Gender',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('gender', models.CharField(max_length=30)),
+                ('gender', models.CharField(max_length=30, unique=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('updated', models.DateTimeField(auto_now=True)),
             ],

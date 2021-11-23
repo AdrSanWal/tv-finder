@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Gender(models.Model):
-    gender = models.CharField(max_length=30)
+    gender = models.CharField(max_length=30, unique=True,)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -11,7 +11,7 @@ class Gender(models.Model):
 
 
 class Director(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, unique=True,)
     birth = models.IntegerField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
