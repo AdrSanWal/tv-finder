@@ -45,8 +45,4 @@ Run project
       In the same folder run:
       
       python3 manage.py runserver
-  
-While fill_db is not working (it is in process),
-you can fill the database from http://localhost:8000/admin
-
-
+      
