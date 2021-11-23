@@ -33,6 +33,12 @@ Run project
       python3 manage.py createsuperuser
       
       you will need name, mail and password
+      
+5. Fill database with some examples
+
+      In the same folder run:
+      
+      python3 fill_database.py    
   
 5. Launch server
 
