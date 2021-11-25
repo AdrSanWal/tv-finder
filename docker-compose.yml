@@ -1,0 +1,30 @@
+version: "3"
+   
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'tvfinderdb'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+  django:
+    build: .
+    command: bash -c "python3 tvfinder/manage.py migrate && python3 tvfinder/manage.py runserver 0.0.0.0:8000"
+    # command: python3 tvfinder/manage.py runserver 0.0.0.0:8000
+    restart: on-failure
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on: #links:
+      - db
+ 
+  
