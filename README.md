@@ -14,35 +14,32 @@ Run project
 
       git clone https://github.com/AdrSanWal/tv-finder.git
 
-2. Install requirements
+2. Build and run docker
 
-      go to folder/tv-finder and run:
+      Go to folder/tv-finder and run:
       
-      pip3 install -r requirements.txt
+      docker-compose up -d --build
 
-3. Migrate tables
-
-      go to folder/tv-finder/tvfinder and run:
-      
-      python3 manage.py migrate
-  
-4. Create superuser
+3. Get the CONTAINER ID
 
       In the same folder run:
       
-      python3 manage.py createsuperuser
+      docker ps
       
-      you will need name, mail and password
+      Identify the Container ID of the tv-finder_django image
+  
+4. Start a session within the default directory of the container
+
+      In the same folder run:
+      
+      docker exec -it <CONTAINER ID> bash
       
 5. Fill database with some examples
 
-      In the same folder run:
+      Go to code/tvfinder and run:
       
       python3 fill_database.py    
   
-5. Launch server
-
-      In the same folder run:
+5. Use the app
       
-      python3 manage.py runserver
-      
+      Go to localhost:8000/f to use it
