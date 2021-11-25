@@ -15,15 +15,15 @@ setup()
 from tv.models import Gender, Director, Tv
 
 
-# Local
-where = 'local'
-urls = ['film.html']
+# # Local testing
+# where = 'local'
+# urls = ['film.html']
 
 # Activate when web part works
-# where = 'web'
-# url_base = 'https://www.filmaffinity.com'
-# # urls = [f'{url_base}/es/tour.php?idtour={_}' for _ in range(6, 23)] #  all
-# urls = ['https://www.filmaffinity.com/es/tour.php?idtour=6'] # only 6
+where = 'web'
+url_base = 'https://www.filmaffinity.com'
+urls = [f'{url_base}/es/tour.php?idtour={_}' for _ in [6, 80]]
+
 
 file_folder = dirname(realpath(__file__))
 filldb_folder = file_folder.rsplit('/', 1)[0]

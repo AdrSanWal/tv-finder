@@ -23,4 +23,3 @@ RUN apt-get update && apt-get install default-libmysqlclient-dev
 
 # copy the content of the local directory to the working directory
 COPY . .
-
