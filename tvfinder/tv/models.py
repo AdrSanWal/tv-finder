@@ -22,8 +22,8 @@ class Director(models.Model):
 
 class Tv(models.Model):
     tv_type = models.CharField(max_length=5, choices=[('s', 'serie'), ('f', 'film')])
-    title = models.CharField(max_length=50, unique=True,)
-    original_title = models.CharField(max_length=50, blank=True, null=True)
+    title = models.CharField(max_length=80, unique=True,)
+    original_title = models.CharField(max_length=80, blank=True, null=True)
     seasons = models.IntegerField(blank=True, null=True)
     photo = models.ImageField(upload_to='tvfinder', null=True, blank=True)
     gender = models.ManyToManyField(Gender, related_name='genders')

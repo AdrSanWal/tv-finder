@@ -9,8 +9,6 @@ services:
       MYSQL_USER: 'user'
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: 'password'
-    volumes:
-      - ./db:/docker-entrypoint-initdb.d/:ro
     ports:
       - '3306:3306'
     expose:
