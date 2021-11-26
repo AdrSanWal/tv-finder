@@ -26,13 +26,13 @@ Run project
       
       docker ps
       
-      Identify the Container ID of the tv-finder_django image
+      Identify the CONTAINER ID of the tv-finder_django image
   
 4. Start a session within the default directory of the container
 
       In the same folder run:
       
-      docker exec -it <CONTAINER ID> bash
+      docker exec -it CONTAINER ID bash
       
 5. Fill database with some examples
 
