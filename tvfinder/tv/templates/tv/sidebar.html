@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container" id="wrapper">
+<!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+            <li>
+                <p>Filtros</p>
+            </li>
+            
+            <li class="active">
+                <a href="#">
+                    <span class="fa-stack fa-lg pull-left">
+                        <i class="fa fa-calendar fa-stack-1x "></i>
+                    </span> Año
+                </a>
+                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                    <li>
+                        <a href="#">Poner barra filtro</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="active">
+                <a href="#">
+                    <span class="fa-stack fa-lg pull-left">
+                        <i class="fa fa-video-camera fa-stack-1x "></i>
+                    </span> Genero
+                </a>
+                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                    <li>
+                        <a href="#">Poner Genero</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="active">
+                <a href="#">
+                    <span class="fa-stack fa-lg pull-left">
+                        <i class="fa fa-globe fa-stack-1x "></i>
+                    </span> Pais
+                </a>
+                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                    <li>
+                        <a href="#">Poner paises</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="active">
+                <a href="#">
+                    <span class="fa-stack fa-lg pull-left">
+                        <i class="fa fa-star fa-stack-1x "></i>
+                    </span> Puntuación
+                </a>
+                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                    <li>
+                        <a href="#">Poner barra puntuación</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Page Content -->
+    {% block content_tv %} {% endblock %}
+</div>
+
+{% endblock %}

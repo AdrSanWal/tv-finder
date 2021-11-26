@@ -16,13 +16,13 @@ from tv.models import Gender, Director, Tv
 
 
 # # Local testing
-# where = 'local'
-# urls = ['film.html']
+where = 'local'
+urls = ['film.html']
 
 # Activate when web part works
-where = 'web'
-url_base = 'https://www.filmaffinity.com'
-urls = [f'{url_base}/es/tour.php?idtour={_}' for _ in [6, 80]]
+# where = 'web'
+# url_base = 'https://www.filmaffinity.com'
+# urls = [f'{url_base}/es/tour.php?idtour={_}' for _ in [6, 80]]
 
 
 file_folder = dirname(realpath(__file__))
