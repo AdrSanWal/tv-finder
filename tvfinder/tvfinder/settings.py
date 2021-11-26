@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'tvfinderdb',
         'USER': 'user',
         'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '3306',
     }
 }
