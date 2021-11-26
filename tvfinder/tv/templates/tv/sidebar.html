@@ -3,14 +3,11 @@
 
 {% block content %}
 
-<div class="container" id="wrapper">
+<div id="wrapper">
 <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
-            <li>
-                <p>Filtros</p>
-            </li>
-            
+            <!-- Year filter -->
             <li class="active">
                 <a href="#">
                     <span class="fa-stack fa-lg pull-left">
@@ -18,25 +15,32 @@
                     </span> Año
                 </a>
                 <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                    <li>
-                        <a href="#">Poner barra filtro</a>
-                    </li>
+                    <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                        <li><a href="#">link1</a></li>
+                        <li><a href="#">link2</a></li>
+                    </ul>
                 </ul>
+
             </li>
 
+            <!-- Gender filter -->
             <li class="active">
                 <a href="#">
                     <span class="fa-stack fa-lg pull-left">
                         <i class="fa fa-video-camera fa-stack-1x "></i>
+                        
                     </span> Genero
                 </a>
                 <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                    <li>
-                        <a href="#">Poner Genero</a>
-                    </li>
+                    <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                        <li><a href="#">link1</a></li>
+                        <li><a href="#">link2</a></li>
+                    </ul>
+
                 </ul>
             </li>
 
+            <!-- Country filter -->
             <li class="active">
                 <a href="#">
                     <span class="fa-stack fa-lg pull-left">
@@ -44,12 +48,11 @@
                     </span> Pais
                 </a>
                 <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                    <li>
-                        <a href="#">Poner paises</a>
-                    </li>
+                    <li><a href="#">Poner paises</a></li>
                 </ul>
             </li>
 
+            <!-- Rating filter -->
             <li class="active">
                 <a href="#">
                     <span class="fa-stack fa-lg pull-left">
@@ -57,14 +60,21 @@
                     </span> Puntuación
                 </a>
                 <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                    <li>
-                        <a href="#">Poner barra puntuación</a>
+                    <li><a href="#">Prueba2</a></li>
+                        <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                            <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 15%; width: 45%;">
+                            </div>
+                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 15%;">
+                            </span>
+                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 60%;">
+                            </span>
+                        </div>
                     </li>
                 </ul>
             </li>
         </ul>
     </div>
-
+      
     <!-- Page Content -->
     {% block content_tv %} {% endblock %}
 </div>
