@@ -4,9 +4,11 @@
 {% block content %}
 
 <div id="wrapper">
-<!-- Sidebar -->
+
+    <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+            
             <!-- Year filter -->
             <li class="active">
                 <a href="#">
@@ -14,43 +16,48 @@
                         <i class="fa fa-calendar fa-stack-1x "></i>
                     </span> Año
                 </a>
-                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                    <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                        <li><a href="#">link1</a></li>
-                        <li><a href="#">link2</a></li>
-                    </ul>
-                </ul>
 
+            </li>
+            <li class="nav-pills nav-stacked sublist">
+                <div class="rangeslider nav-pills nav-stacked" style="position: relative;" name="year_slider">
+                    <input class="min" name="range_1" type="range" min="{{min_year}}" max="{{max_year}}" value="{{min_year}}"/>
+                    <input class="max" name="range_1" type="range" min="{{min_year}}" max="{{max_year}}" value="{{max_year}}"/>
+                    <span class="range_min light left">{{min_year}}</span>
+                    <span class="range_max light right">{{max_year}}</span>
+                </div>
             </li>
 
             <!-- Gender filter -->
             <li class="active">
-                <a href="#">
+                <a href="#gender" data-toggle="collapse" aria-expanded="true" aria-controls="gender">
                     <span class="fa-stack fa-lg pull-left">
                         <i class="fa fa-video-camera fa-stack-1x "></i>
-                        
                     </span> Genero
                 </a>
-                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                    <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                        <li><a href="#">link1</a></li>
-                        <li><a href="#">link2</a></li>
-                    </ul>
-
-                </ul>
             </li>
+            <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                {% for gender in genders %}
+                    <li class="nav-pills nav-stacked sublist">
+                        <a id="{{gender}}" href="{% url 'sidebar_filter' film_type=film_type filter_type='gender' value=gender %}">{{gender}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
 
             <!-- Country filter -->
             <li class="active">
-                <a href="#">
+                <a href="#{{country}}" data-toggle="collapse" aria-expanded="true" aria-controls="country">
                     <span class="fa-stack fa-lg pull-left">
                         <i class="fa fa-globe fa-stack-1x "></i>
                     </span> Pais
                 </a>
-                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                    <li><a href="#">Poner paises</a></li>
-                </ul>
             </li>
+            <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+                {% for country in countries %}
+                    <li class="nav-pills nav-stacked sublist">
+                        <a id="{{country}}" href="{% url 'sidebar_filter' film_type=film_type filter_type='country' value=country %}">{{country}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
 
             <!-- Rating filter -->
             <li class="active">
@@ -59,18 +66,14 @@
                         <i class="fa fa-star fa-stack-1x "></i>
                     </span> Puntuación
                 </a>
-                <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                    <li><a href="#">Prueba2</a></li>
-                        <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
-                            <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 15%; width: 45%;">
-                            </div>
-                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 15%;">
-                            </span>
-                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 60%;">
-                            </span>
-                        </div>
-                    </li>
-                </ul>
+            </li>
+            <li class="nav-pills nav-stacked sublist">
+                <div class="rangeslider">
+                    <input class="min" name="range_1" type="range" min="0" max="10" value="0"/>
+                    <input class="max" name="range_1" type="range" min="0" max="10" value="10"/>
+                    <span class="range_min light left">0</span>
+                    <span class="range_max light right">10</span>
+                </div>
             </li>
         </ul>
     </div>

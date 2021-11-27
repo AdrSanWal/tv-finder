@@ -12,7 +12,6 @@
 }
 
 
-
 /* Sidebar */
 #sidebar-wrapper{
     z-index:1;
@@ -23,7 +22,7 @@
     padding: 0;
     height:100%;
     overflow-y:hidden;
-    background:#263238bd;
+    background:#263238ea;
     opacity:0.9;
       transition:all .5s;
       display:flex;
@@ -74,11 +73,15 @@
   .sidebar-nav li:hover{
     background:#263238;
     text-decoration: none;
-   color: #fff;
+    color: #fff;
 }
-  
 
-
-  .nav-pills > li > a {
+.nav-pills > li > a {
     border-radius: 0;
  }
+
+.sub-menu {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
