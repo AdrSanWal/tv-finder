@@ -18,23 +18,15 @@ Run project
 
       Go to folder/tv-finder and run:
       
-      docker-compose up -d --build
+      docker-compose up -d
 
-3. Get the CONTAINER ID
-
-      In the same folder run:
-      
-      docker ps
-      
-      Identify the CONTAINER ID of the tv-finder_django image
-  
-4. Start a session within the default directory of the container
+3. Start a session within the default directory of the container
 
       In the same folder run:
       
-      docker exec -it CONTAINER ID bash
+      docker exec -it tv-finder_django_1 bash
       
-5. Fill database with some examples
+4. Fill database with some examples
 
       Go to code/tvfinder and run:
       
