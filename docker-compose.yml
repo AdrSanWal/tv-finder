@@ -18,7 +18,10 @@ services:
       - ./db:/var/lib/mysql
   django:
     build: .
-    command: bash -c "python3 tvfinder/manage.py makemigrations && python3 tvfinder/manage.py migrate && python3 tvfinder/manage.py runserver 0.0.0.0:8000"
+    command: bash -c "python3 tvfinder/manage.py makemigrations && 
+                      python3 tvfinder/manage.py migrate && 
+                      python3 tvfinder/fill_database.py &&
+                      python3 tvfinder/manage.py runserver 0.0.0.0:8000"
     restart: on-failure
     volumes:
       - .:/code
