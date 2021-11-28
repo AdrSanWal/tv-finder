@@ -19,13 +19,7 @@ Run project
       Go to folder/tv-finder and run:
       
       docker-compose up -d
-     
-3. Fill database with some examples
-
-      run:
-      
-      docker exec -it tv-finder_django_1 python3 tvfinder/fill_database.py   
   
-4. Use the app
+3. Use the app
       
       Go to localhost:8000/f to use it
