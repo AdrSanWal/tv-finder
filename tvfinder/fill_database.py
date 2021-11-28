@@ -3,6 +3,7 @@ from os import environ
 from os.path import dirname, realpath, join
 from re import sub
 from shutil import copyfile
+from sys import exit
 from unicodedata import normalize
 from urllib.request import urlretrieve
 
@@ -14,6 +15,8 @@ setup()
 
 from tv.models import Gender, Director, Tv
 
+if Tv.objects.all():
+    exit()
 
 # # Local testing
 # where = 'local'
