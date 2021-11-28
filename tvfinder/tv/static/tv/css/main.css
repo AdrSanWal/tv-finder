@@ -11,8 +11,8 @@
     padding-left: 10px;
 }
 
-
 /* Sidebar */
+
 #sidebar-wrapper{
     z-index:1;
     position: absolute;
@@ -58,30 +58,25 @@
     list-style: none;
     margin-top: 2px;
  }
-  
-  .sidebar-nav li{
+ 
+ .sidebar-nav li{
     text-indent: 15px;
     line-height: 40px;
  }
-  
-  .sidebar-nav li a {
-    display: block;
-    text-decoration: none;
-    color: #999999;
- }
-  
-  .sidebar-nav li:hover{
-    background:#263238;
-    text-decoration: none;
-    color: #fff;
-}
 
-.nav-pills > li > a {
+ .nav-pills li a {
     border-radius: 0;
  }
 
-.sub-menu {
+ .hover{
     display: block;
     text-decoration: none;
     color: #999999;
+ }
+  
+.hover:hover{
+    background:#263238;
+    text-decoration: none;
+    color: whitesmoke;
+    
 }

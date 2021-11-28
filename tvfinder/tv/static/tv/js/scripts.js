@@ -1,27 +1,23 @@
- $(document).ready(function(){
-    $("#menu-toggle").click(function(e){
-      e.preventDefault();
-      $("#wrapper").toggleClass("menuDisplayed");
-    });
-  });
+(function() {
+    function rangeInputChangeEventHandler(e){
+        var rangeGroup = $(this).attr('name'),
+            minBtn = $(this).parent().children('.min'),
+            maxBtn = $(this).parent().children('.max'),
+            range_min = $(this).parent().children('.range_min'),
+            range_max = $(this).parent().children('.range_max'),
+            minVal = parseInt($(minBtn).val()),
+            maxVal = parseInt($(maxBtn).val())
+            //origin = $(this).context.className;
 
-  function rangeInputChangeEventHandler(e){
-    var rangeGroup = $(this).attr('name');
-        minBtn = $(this).siblings('.min');
-        maxBtn = $(this).siblings('.max');
-        range_min = $(this).siblings('.range_min');
-        range_max = $(this).siblings('.range_max');
-        minVal = parseInt($(minBtn).val());
-        maxVal = parseInt($(maxBtn).val());
         $(range_min).html(minVal);
         $(range_max).html(maxVal);
-        
-}
+    }
+ $('input[type="range"]').on( 'input', rangeInputChangeEventHandler);
+})();
 
-$('input[type="range"]').on( 'input', rangeInputChangeEventHandler);
-
-$(function() {
-    $(document).on('click', '#menu-toggle', function(event) {
-        console.log('ok')
-     });
-   });
+$(function() {$(document).on('click', '#menu-toggle', function(e) {
+    console.log('ok2')
+    e.preventDefault();
+    $("#wrapper").toggleClass("menuDisplayed");
+    });
+});

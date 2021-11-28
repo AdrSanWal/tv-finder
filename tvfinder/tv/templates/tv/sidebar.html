@@ -10,71 +10,76 @@
         <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
             
             <!-- Year filter -->
-            <li class="active">
-                <a href="#">
-                    <span class="fa-stack fa-lg pull-left">
+            <li class="list">
+                <a class="hover" data-bs-toggle="collapse" href="#years" aria-expanded="false" aria-controls="years">
+                    <span class="fa-stack fa-lg">
                         <i class="fa fa-calendar fa-stack-1x "></i>
                     </span> Año
                 </a>
-
+             
             </li>
-            <li class="nav-pills nav-stacked sublist">
-                <div class="rangeslider nav-pills nav-stacked" style="position: relative;" name="year_slider">
-                    <input class="min" name="range_1" type="range" min="{{min_year}}" max="{{max_year}}" value="{{min_year}}"/>
-                    <input class="max" name="range_1" type="range" min="{{min_year}}" max="{{max_year}}" value="{{max_year}}"/>
+            <div class="collapse hover" id="years">
+                <div class="rangeslider" name="year_slider">
+                    <input id="y_range" class="min light" name="range_1" type="range" min="{{min_year}}" max="{{max_year}}" value="{{min_year}}"/>
+                    <input id="y_range" class="max light" name="range_1" type="range" min="{{min_year}}" max="{{max_year}}" value="{{max_year}}"/>
                     <span class="range_min light left">{{min_year}}</span>
                     <span class="range_max light right">{{max_year}}</span>
                 </div>
-            </li>
+            </div>
 
             <!-- Gender filter -->
-            <li class="active">
-                <a href="#gender" data-toggle="collapse" aria-expanded="true" aria-controls="gender">
-                    <span class="fa-stack fa-lg pull-left">
+            <li class="list">
+                <a class="hover" data-bs-toggle="collapse" href="#genders" aria-expanded="false" aria-controls="genders">
+                    <span class="fa-stack fa-lg">
                         <i class="fa fa-video-camera fa-stack-1x "></i>
-                    </span> Genero
+                    </span> Género
                 </a>
             </li>
-            <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                {% for gender in genders %}
-                    <li class="nav-pills nav-stacked sublist">
-                        <a id="{{gender}}" href="{% url 'sidebar_filter' film_type=film_type filter_type='gender' value=gender %}">{{gender}}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-
-            <!-- Country filter -->
-            <li class="active">
-                <a href="#{{country}}" data-toggle="collapse" aria-expanded="true" aria-controls="country">
-                    <span class="fa-stack fa-lg pull-left">
-                        <i class="fa fa-globe fa-stack-1x "></i>
-                    </span> Pais
-                </a>
-            </li>
-            <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                {% for country in countries %}
-                    <li class="nav-pills nav-stacked sublist">
-                        <a id="{{country}}" href="{% url 'sidebar_filter' film_type=film_type filter_type='country' value=country %}">{{country}}</a>
-                    </li>
-                {% endfor %}
-            </ul>
+            <div class="collapse" id="genders">
+                <ul class="" style="list-style-type:none;">
+                    {% for gender in genders %}
+                        <li class="">
+                            <a id="{{gender}}" class="hover" href="{% url 'sidebar_filter' film_type=film_type filter_type='gender' value=gender %}">{{gender}}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
 
             <!-- Rating filter -->
-            <li class="active">
-                <a href="#">
-                    <span class="fa-stack fa-lg pull-left">
-                        <i class="fa fa-star fa-stack-1x "></i>
-                    </span> Puntuación
+            <li class="list">
+                <a class="hover" data-bs-toggle="collapse" href="#rating" aria-expanded="false" aria-controls="rating">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-calendar fa-stack-1x "></i>
+                    </span> Valoración
                 </a>
+             
             </li>
-            <li class="nav-pills nav-stacked sublist">
-                <div class="rangeslider">
-                    <input class="min" name="range_1" type="range" min="0" max="10" value="0"/>
-                    <input class="max" name="range_1" type="range" min="0" max="10" value="10"/>
+            <div class="collapse hover" id="rating">
+                <div class="rangeslider" name="rating_slider">
+                    <input id="y_range" class="min light" name="range_1" type="range" min="0" max="10" value="0"/>
+                    <input id="y_range" class="max light" name="range_1" type="range" min="0" max="10" value="10"/>
                     <span class="range_min light left">0</span>
                     <span class="range_max light right">10</span>
                 </div>
+            </div>
+
+            <!-- Gender filter -->
+            <li class="list">
+                <a class="hover" data-bs-toggle="collapse" href="#countries" aria-expanded="false" aria-controls="countries">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-video-camera fa-stack-1x "></i>
+                    </span> Pais
+                </a>
             </li>
+            <div class="collapse" id="countries">
+                <ul class="" style="list-style-type:none;">
+                    {% for country in countries %}
+                        <li class="">
+                            <a id="{{country}}" class="hover" href="{% url 'sidebar_filter' film_type=film_type filter_type='country' value=country %}">{{country}}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </ul>
     </div>
       

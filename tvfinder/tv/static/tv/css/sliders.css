@@ -3,65 +3,76 @@ input[type='range'] {
     height: 30px;
     overflow: hidden;
     cursor: pointer;
-      outline: none;
-  }
-  input[type='range'],
-  input[type='range']::-webkit-slider-runnable-track,
-  input[type='range']::-webkit-slider-thumb {
+        outline: none;
+}
+input[type='range'],
+input[type='range']::-webkit-slider-runnable-track,
+input[type='range']::-webkit-slider-thumb {
     -webkit-appearance: none;
-      background: none;
-  }
-  input[type='range']::-webkit-slider-runnable-track {
+        background: none;
+}
+input[type='range']::-webkit-slider-runnable-track {
     width: 150px;
     height: 3px;
-    background: rgba(255, 255, 255, 0.329);
-  }
-  
-  input[type='range']:nth-child(2)::-webkit-slider-runnable-track{
+    background: #77797a;
+}
+
+input[type='range']:nth-child(2)::-webkit-slider-runnable-track{
     background: none;
-  }
-  
-  input[type='range']::-webkit-slider-thumb {
+}
+
+input[type='range']::-webkit-slider-thumb {
     position: relative;
     height: 15px;
     width: 15px;
     margin-top: -7px;
     background: #263238;
-    border: 1px solid white;
+    border: 1px solid #77797a;
     border-radius: 15px;
     z-index: 1;
-  }
-  
- 
-  input[type='range']:nth-child(1)::-webkit-slider-thumb{
+}
+
+
+input[type='range']:nth-child(1)::-webkit-slider-thumb{
     z-index: 2;
-  }
-  
-  .rangeslider{
-      position: relative;
-      height: 60px;
-      width: 150px;
-      display: inline-block;
-  }
-  .rangeslider input{
-      position: absolute;
-  }
-  .rangeslider{
-      position: absolute;
-  }
-  
-  .rangeslider span{
-      position: absolute;
-      margin-top: 30px;
-      left: 0;
-  }
-  
-  .rangeslider .right{
-     position: relative;
-     float: right;
-     margin-right: -5px;
-  }
-  
+}
+
+
+.rangeslider {
+    position: relative;
+    height: 60px;
+    width: 190px;
+    display: inline-block;
+    margin-left: 45px;
+}
+
+.rangeslider input{
+    position: absolute;
+}
+
+.rangeslider span{
+    position: absolute;
+    margin-top: 30px;
+    left: 0;
+}
+
+.rangeslider .right{
+    position: relative;
+    float: right;
+    margin-right: 25px;
+}
+
+.rangeslider .light{
+    color: #77797a;
+}
+
+.rangeslider:hover .light {
+    color: whitesmoke;
+}
+
+.rangeslider:hover .light::-webkit-slider-thumb {
+    border: 1.5px solid whitesmoke;
+}
   
   /* Proof of concept for Firefox */
   @-moz-document url-prefix() {
