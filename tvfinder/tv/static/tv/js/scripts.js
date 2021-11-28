@@ -16,7 +16,6 @@
 })();
 
 $(function() {$(document).on('click', '#menu-toggle', function(e) {
-    console.log('ok2')
     e.preventDefault();
     $("#wrapper").toggleClass("menuDisplayed");
     });

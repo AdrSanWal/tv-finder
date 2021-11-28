@@ -3,6 +3,7 @@ from os import environ
 from os.path import dirname, realpath, join
 from re import sub
 from shutil import copyfile
+from sys import exit
 from unicodedata import normalize
 from urllib.request import urlretrieve
 
@@ -14,15 +15,17 @@ setup()
 
 from tv.models import Gender, Director, Tv
 
+if Tv.objects.all():
+    exit()
 
 # # Local testing
-where = 'local'
-urls = ['film.html']
+# where = 'local'
+# urls = ['film.html']
 
 # Activate when web part works
-# where = 'web'
-# url_base = 'https://www.filmaffinity.com'
-# urls = [f'{url_base}/es/tour.php?idtour={_}' for _ in [6, 80]]
+where = 'web'
+url_base = 'https://www.filmaffinity.com'
+urls = [f'{url_base}/es/tour.php?idtour={_}' for _ in [6, 80]]
 
 
 file_folder = dirname(realpath(__file__))

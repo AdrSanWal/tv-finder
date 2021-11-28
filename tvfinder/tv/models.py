@@ -6,6 +6,11 @@ class Gender(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ["gender"]
+        verbose_name = "Gender"
+        verbose_name_plural = "Genders"
+
     def __str__(self):
         return f'{self.gender}'
 
@@ -15,6 +20,11 @@ class Director(models.Model):
     birth = models.IntegerField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["name"]
+        verbose_name = "Director"
+        verbose_name_plural = "Directors"
 
     def __str__(self):
         return f'{self.name}, {self.birth}'
@@ -35,5 +45,10 @@ class Tv(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ["title"]
+        verbose_name = "Film"
+        verbose_name_plural = "Films"
+        
     def __str__(self):
         return f'{self.title}, {self.gender}, {self.year}, {self.rating}'
