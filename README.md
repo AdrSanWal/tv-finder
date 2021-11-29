@@ -18,28 +18,8 @@ Run project
 
       Go to folder/tv-finder and run:
       
-      docker-compose up -d --build
-
-3. Get the CONTAINER ID
-
-      In the same folder run:
-      
-      docker ps
-      
-      Identify the Container ID of the tv-finder_django image
+      docker-compose up -d
   
-4. Start a session within the default directory of the container
-
-      In the same folder run:
-      
-      docker exec -it <CONTAINER ID> bash
-      
-5. Fill database with some examples
-
-      Go to code/tvfinder and run:
-      
-      python3 fill_database.py    
-  
-5. Use the app
+3. Use the app
       
       Go to localhost:8000/f to use it
