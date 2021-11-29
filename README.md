@@ -23,3 +23,5 @@ Run project
 3. Use the app
       
       Go to localhost:8000/f to use it
+      
+If it doesn't work right away, wait a minute, the database is filling up with some test data
