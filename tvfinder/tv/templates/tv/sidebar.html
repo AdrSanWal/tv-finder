@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+            
+            <!-- Year filter -->
+            <li class="list">
+                <a class="hover" data-bs-toggle="collapse" href="#form_years" aria-expanded="false" aria-controls="form_years">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-calendar fa-stack-1x "></i>
+                    </span> Año
+                </a>
+             
+            </li>
+            <form class="collapse hover" id="form_years" method="get" action="/{{film_type}}/">
+                <div class="rangeslider" name="year_slider">
+                    <input id="year_min" class="range light" name="year__gte" type="range" min="{{min_year}}" max="{{max_year}}" value="{{min_year}}"/>
+                    <input id="year_max" class="range light" name="year__lte" type="range" min="{{min_year}}" max="{{max_year}}" value="{{max_year}}"/>
+                    <span id="year_min_range" class="light left">{{min_year}}</span>
+                    <span id="year_max_range" class="light right">{{max_year}}</span>
+                </div>
+            </form>
+
+            <!-- Gender filter -->
+            <li class="list">
+                <a class="hover" data-bs-toggle="collapse" href="#genders" aria-expanded="false" aria-controls="genders">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-video-camera fa-stack-1x "></i>
+                    </span> Género
+                </a>
+            </li>
+            <div class="collapse" id="genders">
+                <ul class="" style="list-style-type:none;">
+                    {% for gender in genders %}
+                        <li class="">
+                            <a id="{{gender.id}}" class="hover" href="{% url 'films' film_type %}?gender__exact={{gender}}">{{gender}}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Rating filter -->
+            <li class="list">
+                <a class="hover" data-bs-toggle="collapse" href="#form_rating" aria-expanded="false" aria-controls="form_rating">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-calendar fa-stack-1x "></i>
+                    </span> Valoración
+                </a>
+             
+            </li>
+            <form class="collapse hover" id="form_rating" method="get" action="/{{film_type}}/">
+                <div class="rangeslider" name="rating_slider">
+                    <input id="rating_min" class="range light" name="rating__gte" type="range" min="0" max="10" value="0"/>
+                    <input id="rating_max" class="range light" name="rating__lte" type="range" min="0" max="10" value="10"/>
+                    <span id="rating_min_range" class="light left">0</span>
+                    <span id="rating_max_range" class="light right">10</span>
+                </div>
+            </form>
+
+            <!-- Country filter -->
+            <li class="list">
+                <a class="hover" data-bs-toggle="collapse" href="#countries" aria-expanded="false" aria-controls="countries">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-video-camera fa-stack-1x "></i>
+                    </span> Pais
+                </a>
+            </li>
+            <div class="collapse" id="countries">
+                <ul class="" style="list-style-type:none;">
+                    {% for country in countries %}
+                        <li class="">
+                            <a id="{{country}}" class="hover" href="{% url 'films' film_type %}?country__iexact={{country}}">{{country}}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </ul>
+    </div>
+      
+    <!-- Page Content -->
+    {% block content_film %} {% endblock %}
+</div>
+{% endblock %}
