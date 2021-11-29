@@ -36,19 +36,19 @@ class Tv(models.Model):
     original_title = models.CharField(max_length=80, blank=True, null=True)
     seasons = models.IntegerField(blank=True, null=True)
     photo = models.ImageField(upload_to='tvfinder', null=True, blank=True)
-    gender = models.ManyToManyField(Gender, related_name='genders')
+    gender = models.ManyToManyField(Gender, related_name='rel_genders')
     year = models.IntegerField()
-    director = models.ManyToManyField(Director, related_name='directors')
+    director = models.ManyToManyField(Director, related_name='rel_directors')
     country = models.CharField(max_length=30, blank=True, null=True)
     rating = models.FloatField()
     summary = models.TextField(max_length=500)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-
+    
     class Meta:
         ordering = ["title"]
         verbose_name = "Film"
         verbose_name_plural = "Films"
-        
+
     def __str__(self):
-        return f'{self.title}, {self.gender}, {self.year}, {self.rating}'
+        return f'{self.title}, {[gender.gender for gender in self.gender.all()]}, {self.year}, {self.rating}'

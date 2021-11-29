@@ -7,7 +7,6 @@
             range_max = $(this).parent().children('.range_max'),
             minVal = parseInt($(minBtn).val()),
             maxVal = parseInt($(maxBtn).val())
-            //origin = $(this).context.className;
 
         $(range_min).html(minVal);
         $(range_max).html(maxVal);
@@ -20,3 +19,4 @@ $(function() {$(document).on('click', '#menu-toggle', function(e) {
     $("#wrapper").toggleClass("menuDisplayed");
     });
 });
+console.log(Math.random())

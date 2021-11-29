@@ -39,7 +39,7 @@
                 <ul class="" style="list-style-type:none;">
                     {% for gender in genders %}
                         <li class="">
-                            <a id="{{gender}}" class="hover" href="{% url 'sidebar_filter' film_type=film_type filter_type='gender' value=gender %}">{{gender}}</a>
+                            <a id="{{gender.id}}" class="hover" href="{% url 'films' film_type %}?gender__exact={{gender}}">{{gender}}</a>
                         </li>
                     {% endfor %}
                 </ul>
@@ -63,7 +63,7 @@
                 </div>
             </div>
 
-            <!-- Gender filter -->
+            <!-- Country filter -->
             <li class="list">
                 <a class="hover" data-bs-toggle="collapse" href="#countries" aria-expanded="false" aria-controls="countries">
                     <span class="fa-stack fa-lg">
@@ -75,7 +75,7 @@
                 <ul class="" style="list-style-type:none;">
                     {% for country in countries %}
                         <li class="">
-                            <a id="{{country}}" class="hover" href="{% url 'sidebar_filter' film_type=film_type filter_type='country' value=country %}">{{country}}</a>
+                            <a id="{{country}}" class="hover" href="{% url 'films' film_type %}?country__iexact={{country}}">{{country}}</a>
                         </li>
                     {% endfor %}
                 </ul>
@@ -84,7 +84,6 @@
     </div>
       
     <!-- Page Content -->
-    {% block content_tv %} {% endblock %}
+    {% block content_film %} {% endblock %}
 </div>
-
 {% endblock %}

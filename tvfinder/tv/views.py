@@ -1,61 +1,36 @@
 from django.shortcuts import render
 
-from .filters import TvFilter
+from .filters import GenderFilter, TvFilter
 from .models import Tv, Director, Gender
 
 
-def get_values(films):
-    years = [film.year for film in films.qs]
-    countries = set([film.country for film in films.qs])
-    films_ids = [film.id for film in films.qs]
-    genders = set(Gender.objects.filter(genders__in=films_ids))
-    return {'min_year': min(years),
-            'max_year': max(years),
-            'countries': countries,
-            'films_ids': films_ids,
-            'genders': genders}
-
-
 def films(request, film_type):
-    
-    finder = request.GET.get('finder')
-    if finder != '' and finder is not None:
-        films = TvFilter(request.GET,
-                         queryset=Tv.objects.filter(tv_type=film_type,
-                                                    title__icontains=finder))
-    else:
-        films = TvFilter(request.GET,
-                         queryset=Tv.objects.filter(tv_type=film_type))
+    queryset = Tv.objects.filter(tv_type=film_type).prefetch_related('gender')
+    films = TvFilter(request.GET, queryset=queryset)
 
-    context = get_values(films)
-    return render(request, 'tv/tv.html', {'all_tv': films,
+    films_ids = films.qs.values('id')
+    genders = Gender.objects.filter(rel_genders__in=films_ids).distinct()
+
+    years = [film.year for film in films.qs]
+    min_year = min(years) if years else None
+    max_year = max(years) if years else None
+
+    countries = set([film.country for film in films.qs])
+
+    return render(request, 'tv/tv.html', {'films': films,
                                           'film_type': film_type,
-                                          **context,
+                                          'min_year': min_year,
+                                          'max_year': max_year,
+                                          'countries': countries,
+                                          'genders': genders,
                                           })
-
-
-def sidebar_filter(request, film_type, filter_type, value):
-    if filter_type == 'country':
-        films = TvFilter(request.GET,
-                         queryset=Tv.objects.filter(tv_type=film_type,
-                                                    country=value))
-    if filter_type == 'gender':
-        gender_id = Gender.objects.get(gender=value)
-        films = TvFilter(request.GET,
-                         queryset=Tv.objects.filter(tv_type=film_type,
-                                                    gender=gender_id.id))
-
-    context = get_values(films)
-    return render(request, 'tv/tv.html', {'all_tv': films,
-                                          'film_type': film_type,
-                                          **context})
 
 
 def filtered_film(request, film_type, filter_id):
     filtered_film = Tv.objects.get(id=filter_id)
     film_type = filtered_film.tv_type
-    directors = Director.objects.filter(directors__in=[filter_id])
-    genders = Gender.objects.filter(genders__in=[filter_id])
+    directors = Director.objects.filter(rel_directors__in=[filter_id])
+    genders = Gender.objects.filter(rel_genders__in=[filter_id])
     return render(request, 'tv/film.html', {'filtered_film': filtered_film,
                                             'genders': genders,
                                             'directors': directors})

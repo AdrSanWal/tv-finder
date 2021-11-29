@@ -10,17 +10,17 @@
 {% endblock %}
 
 
-{% block content_tv %}
+{% block content_film %}
 
 <div id="page-content-wrapper">
     <div class="container container-fluid film-container">
         <div class="row row-cols-3 row-cols-lg-6 g-2 g-lg-3">
-            {% for tv in all_tv.qs %}
+            {% for film in films.qs %}
             <div class="col">
-                <a href="{% url 'filtered_film' tv.tv_type tv.id %}">
+                <a href="{% url 'filtered_film' film.tv_type film.id %}">
                 <div class="p-2 border bg-light rounded">
-                    <img src={{tv.photo.url}} class="img-thumbnail">
-                    <figcaption class="figure-caption">{{tv.title}} ({{tv.year}})</figcaption>
+                    <img src={{film.photo.url}} class="img-thumbnail">
+                    <figcaption class="figure-caption">{{film.title}} ({{film.year}})</figcaption>
                 </div>
                 </a>
             </div>
@@ -32,5 +32,6 @@
         </div>
     </div>    
 </div>
-{{year_filter}}
+
+
 {% endblock %}
