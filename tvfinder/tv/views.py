@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .filters import GenderFilter, TvFilter
+from .filters import TvFilter
 from .models import Tv, Director, Gender
 
 

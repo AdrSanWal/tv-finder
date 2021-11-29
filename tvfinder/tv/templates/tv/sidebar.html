@@ -11,21 +11,21 @@
             
             <!-- Year filter -->
             <li class="list">
-                <a class="hover" data-bs-toggle="collapse" href="#years" aria-expanded="false" aria-controls="years">
+                <a class="hover" data-bs-toggle="collapse" href="#form_years" aria-expanded="false" aria-controls="form_years">
                     <span class="fa-stack fa-lg">
                         <i class="fa fa-calendar fa-stack-1x "></i>
                     </span> Año
                 </a>
              
             </li>
-            <div class="collapse hover" id="years">
+            <form class="collapse hover" id="form_years" method="get" action="/{{film_type}}/">
                 <div class="rangeslider" name="year_slider">
-                    <input id="y_range" class="min light" name="range_1" type="range" min="{{min_year}}" max="{{max_year}}" value="{{min_year}}"/>
-                    <input id="y_range" class="max light" name="range_1" type="range" min="{{min_year}}" max="{{max_year}}" value="{{max_year}}"/>
-                    <span class="range_min light left">{{min_year}}</span>
-                    <span class="range_max light right">{{max_year}}</span>
+                    <input id="year_min" class="range light" name="year__gte" type="range" min="{{min_year}}" max="{{max_year}}" value="{{min_year}}"/>
+                    <input id="year_max" class="range light" name="year__lte" type="range" min="{{min_year}}" max="{{max_year}}" value="{{max_year}}"/>
+                    <span id="year_min_range" class="light left">{{min_year}}</span>
+                    <span id="year_max_range" class="light right">{{max_year}}</span>
                 </div>
-            </div>
+            </form>
 
             <!-- Gender filter -->
             <li class="list">
@@ -47,21 +47,21 @@
 
             <!-- Rating filter -->
             <li class="list">
-                <a class="hover" data-bs-toggle="collapse" href="#rating" aria-expanded="false" aria-controls="rating">
+                <a class="hover" data-bs-toggle="collapse" href="#form_rating" aria-expanded="false" aria-controls="form_rating">
                     <span class="fa-stack fa-lg">
                         <i class="fa fa-calendar fa-stack-1x "></i>
                     </span> Valoración
                 </a>
              
             </li>
-            <div class="collapse hover" id="rating">
+            <form class="collapse hover" id="form_rating" method="get" action="/{{film_type}}/">
                 <div class="rangeslider" name="rating_slider">
-                    <input id="y_range" class="min light" name="range_1" type="range" min="0" max="10" value="0"/>
-                    <input id="y_range" class="max light" name="range_1" type="range" min="0" max="10" value="10"/>
-                    <span class="range_min light left">0</span>
-                    <span class="range_max light right">10</span>
+                    <input id="rating_min" class="range light" name="rating__gte" type="range" min="0" max="10" value="0"/>
+                    <input id="rating_max" class="range light" name="rating__lte" type="range" min="0" max="10" value="10"/>
+                    <span id="rating_min_range" class="light left">0</span>
+                    <span id="rating_max_range" class="light right">10</span>
                 </div>
-            </div>
+            </form>
 
             <!-- Country filter -->
             <li class="list">

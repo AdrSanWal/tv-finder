@@ -12,12 +12,3 @@ class TvFilter(FilterSet):
             'rating': ['gte', 'lte'],
             'country': ['iexact'],
         }
-
-
-class GenderFilter(FilterSet):
-    class Meta:
-        model = Gender
-        fields = {
-            'id': ['exact'],
-            'gender': ['exact']
-        }
