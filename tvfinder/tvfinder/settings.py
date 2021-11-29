@@ -126,8 +126,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'tv/static/tv/']
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'tvfinder/media'
+MEDIA_URL = '/'
+MEDIA_ROOT = BASE_DIR / 'tvfinder/media/'
 
 
 # Default primary key field type

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends './sidebar.html' %}
 {% load static %}
 
 {% block title %}
@@ -9,25 +9,27 @@
     {% endif %}
 {% endblock %}
 
+{% block content_film %}
 
-{% block content %}
-<br>
-
-<br>
-<h1>{{filter_input}}</h1>
-
-<div class="container body-container"></div>
-  <div class="row row-cols-3 row-cols-lg-6 g-2 g-lg-3">
-    {% for tv in all_tv %}
-      <div class="col">
-        <a href="{% url 'filtered_film' tv.tv_type tv.id %}">
-          <div class="p-2 border bg-light rounded">
-            <img src={{tv.photo.url}} class="img-thumbnail">
-            <figcaption class="figure-caption">{{tv.title}} ({{tv.year}})</figcaption>
-          </div>
-        </a>
-      </div>
-    {% endfor %}
-  </div>
+<div id="page-content-wrapper">
+    <div class="container container-fluid film-container">
+        <div class="row row-cols-3 row-cols-lg-6 g-2 g-lg-3">
+            {% for film in films.qs %}
+            <div class="col">
+                <a href="{% url 'filtered_film' film.tv_type film.id %}">
+                <div class="p-2 border bg-light rounded">
+                    <img src={{film.photo.url}} class="img-thumbnail">
+                    <figcaption class="figure-caption">{{film.title}} ({{film.year}})</figcaption>
+                </div>
+                </a>
+            </div>
+            {% empty %}
+                <div class="container ">
+                    <h3>Ninguna pelicula encontrada</h3>
+                </div>
+            {% endfor %}
+        </div>
+    </div>    
 </div>
+
 {% endblock %}

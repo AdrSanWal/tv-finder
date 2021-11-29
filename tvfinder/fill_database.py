@@ -3,6 +3,7 @@ from os import environ
 from os.path import dirname, realpath, join
 from re import sub
 from shutil import copyfile
+from sys import exit
 from unicodedata import normalize
 from urllib.request import urlretrieve
 
@@ -14,6 +15,8 @@ setup()
 
 from tv.models import Gender, Director, Tv
 
+if Tv.objects.all():
+    exit()
 
 # # Local testing
 # where = 'local'
@@ -53,6 +56,10 @@ class Film():
         self.photo = f'tvfinder/{file_name}.jpg'
 
     def get_fields(self, soup, field, *args, **kwargs):
+        """ Get the soup and a field that indicates the type of
+        attribute to search for.
+        It is also necessary to indicate in which label to search
+        and which attribute value it has """
         select_filter = []
 
         for tag_attr in zip(args, kwargs.items()):
@@ -154,6 +161,7 @@ def read_from(origin):
     elif where == 'web':
         text = get_page_source(origin).text
     return BeautifulSoup(text, "lxml")
+
 
 for url in urls:
     soup = read_from(url)
